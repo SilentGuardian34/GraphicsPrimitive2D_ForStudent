@@ -42,7 +42,25 @@ public class BoundingRectangle {
         return new MyPoint2D(_left, _top);
     }
 
+    public MyPoint2D getRightBottom() {
+        return new MyPoint2D(_right, _bottom);
+    }
+
     public MySize2D getSize() {
         return new MySize2D(_right-_left, _top-_bottom);
+    }
+
+    @Override
+    public boolean equals(Object other) {
+
+        if (other == this) {
+            return true;
+        }
+
+        if (other instanceof BoundingRectangle) {
+            return this._left == ((BoundingRectangle) other)._left && this._top == ((BoundingRectangle) other)._top && this._right == ((BoundingRectangle) other)._right && this._bottom == ((BoundingRectangle) other)._bottom;
+        }
+
+        return false;
     }
 }

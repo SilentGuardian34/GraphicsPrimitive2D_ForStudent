@@ -15,4 +15,18 @@ public class MySize2D {
     public float getHeight(){
         return _height;
     }
+
+    @Override
+    public boolean equals(Object other) {
+
+        if (other == this) {
+            return true;
+        }
+
+        if (other instanceof MySize2D) {
+            return ((MySize2D) other)._width == this._width && ((MySize2D) other)._height == this._height;
+        }
+
+        return false;
+    }
 }

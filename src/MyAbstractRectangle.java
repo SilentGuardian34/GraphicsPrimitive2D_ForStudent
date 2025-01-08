@@ -1,7 +1,7 @@
-import java.util.Arrays;
+// import java.util.Arrays;
 import java.util.List;
 
-public class MyAbstractRectangle extends MyAbstractPolygon {
+public abstract class MyAbstractRectangle extends MyAbstractPolygon {
 
     protected MyPoint2D _leftTop, _rightBottom;
     protected MySize2D _size;
@@ -32,14 +32,14 @@ public class MyAbstractRectangle extends MyAbstractPolygon {
 
     public boolean isRectangle(List<MyPoint2D> vertices) {
 
-        if (_vertices.size() != 4) {
+        if (vertices.size() != 4) {
             return false;
         }
 
         for (int i = 0; i < 4; i++) {
-            MyPoint2D p1 = _vertices.get(i);
-            MyPoint2D p2 = _vertices.get((i + 1) % 4);
-            MyPoint2D p3 = _vertices.get((i + 2) % 4);
+            MyPoint2D p1 = vertices.get(i);
+            MyPoint2D p2 = vertices.get((i + 1) % 4);
+            MyPoint2D p3 = vertices.get((i + 2) % 4);
 
             float dx1 = p2.getX() - p1.getX();
             float dy1 = p2.getY() - p1.getY();
@@ -53,7 +53,7 @@ public class MyAbstractRectangle extends MyAbstractPolygon {
         return true;
     }
 
-    protected float distance(MyPoint2D p1, MyPoint2D p2) {
-        return (float)(Math.sqrt(Math.pow(p2.getX() - p1.getX(), 2) + Math.pow(p2.getY() - p1.getY(), 2)));
-    }
+//    protected float distance(MyPoint2D p1, MyPoint2D p2) {
+//        return (float)(Math.sqrt(Math.pow(p2.getX() - p1.getX(), 2) + Math.pow(p2.getY() - p1.getY(), 2)));
+//    }
 }
